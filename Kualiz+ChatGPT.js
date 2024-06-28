@@ -46,7 +46,7 @@ async function OpenChat(queueId, apiKey, number, country, markerId, message)
 
 
 
-async function OpenAiAPI(mensagemCliente, apiKey)
+/*async function OpenAiAPI(mensagemCliente, apiKey)
 {
     const result = await fetch('https://api.openai.com/v1/chat/completions',
         {
@@ -56,6 +56,7 @@ async function OpenAiAPI(mensagemCliente, apiKey)
             {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
+                Authorization: `Bearer ${apiKey}`
             },
 
             body: JSON.stringify({
@@ -73,7 +74,7 @@ async function OpenAiAPI(mensagemCliente, apiKey)
             })
 
     return result
-}
+}*/
 
 async function SendMessageToChat(queueId, apiKey, chatId, text, fileId, info)
 {
