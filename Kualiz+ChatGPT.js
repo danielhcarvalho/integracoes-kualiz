@@ -43,39 +43,6 @@ async function OpenChat(queueId, apiKey, number, country, markerId, message)
     return atendimento
 }
 
-
-
-
-/*async function OpenAiAPI(mensagemCliente, apiKey)
-{
-    const result = await fetch('https://api.openai.com/v1/chat/completions',
-        {
-            method: 'POST',
-
-            headers:
-            {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${apiKey}`
-            },
-
-            body: JSON.stringify({
-                'model': 'gpt-4o',
-                'messages': [{role: 'system', content: mensagemCliente}],
-                'max_tokens': 4096,
-                'temperature': 0.5,
-            })})
-            .then(res => {
- 
-                return res.json()
-            })
-            .then(data => {     
-                return data
-            })
-
-    return result
-}*/
-
 async function SendMessageToChat(queueId, apiKey, chatId, text, fileId, info)
 {
     const body = {
