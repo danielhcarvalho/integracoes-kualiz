@@ -56,7 +56,6 @@ async function OpenAiAPI(mensagemCliente, apiKey)
             {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${apiKey}`
             },
 
             body: JSON.stringify({
