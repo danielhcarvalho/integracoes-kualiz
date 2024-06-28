@@ -1,24 +1,19 @@
-let tipo;
-
 function TipoDocumento(documento) 
 {
     documento = documento.replace(/\D/g, '');
 
     if (documento.length == 11)
     {
-        tipo = 'CPF';
+        return 'CPF';
     } 
     else if (documento.length == 14) 
     {
-        tipo = 'CNPJ';
+        return 'CNPJ';
     } 
     else 
     {
-        tipo = 'Documento inválido';
+        return false;
     }
-
-    /*vars['tipo'] = tipo*/
-    return documento;
 
 }
 
@@ -87,6 +82,7 @@ function ValidarCNPJ(cnpj)
 
 }
 
+/*vars['tipoDocumento'] = TipoDocumento()*/
 let documento = TipoDocumento(/*vars['documentoCliente']*/);
 if (tipo === 'CPF') /*vars['isValid'] =*/ ValidarCPF(documento);
 else if (tipo === 'CNPJ') /*vars['isValid'] =*/ValidarCNPJ(documento);
