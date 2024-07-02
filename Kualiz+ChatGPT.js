@@ -1,6 +1,6 @@
-async function KualizAPI(path, method, body)
+async function KualizAPI(url, path, method, body)
 {
-    const endpoint = `https://testeskualiz.atenderbem.com/${path}`;
+    const endpoint = `${url}${path}`;
 
 
     const result = await fetch(endpoint, 
@@ -38,7 +38,7 @@ async function OpenChat(queueId, apiKey, number, country, markerId, message)
         'markerId': markerId,
         'message': message
     }
-    const atendimento = await KualizAPI('int/openChat', 'POST', body)
+    const atendimento = await KualizAPI('', 'int/openChat', 'POST', body)
 
     return atendimento
 }
@@ -97,7 +97,7 @@ async function GetChatMessages(chatId)
     const body = 
     {
         'queueId': 10, 
-        'apiKey': 'zltecnologia',
+        'apiKey': apiKey,
         'chatId': chatId
     }
 
@@ -110,7 +110,7 @@ async function GetAllOpenChats()
     const body =
     {
         'queueId': 10, 
-        'apiKey': 'zltecnologia'
+        'apiKey': apiKey
     }
 
     const buscarAtendimentos = await KualizAPI('int/getAllOpenChats', 'POST', body)
@@ -134,7 +134,7 @@ async function RespondendoClientes(chatId, index)
             if (buscarAtendimentos.chats[i].onIvr && direction == 1)
             {    
                 let resposta = (await OpenAiAPI(mensagem)).choices[0].message.content
-                SendMessageToChat(10, 'zltecnologia', buscarAtendimentos.chats[i].chatId, resposta)
+                SendMessageToChat(10, apiKey, buscarAtendimentos.chats[i].chatId, resposta)
                 console.log(resposta)
                 console.log(buscarAtendimentos.chats[i].chatId)
 
